@@ -1,0 +1,74 @@
+@import './fonts.scss';
+
+:root {
+    --primary-gradient: linear-gradient(147deg, #00b2d0 20%, #e2ffad 150%);
+    --preview-width-ratio: 60%;
+    --layout-gap: 80px;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+#product-builder {
+    min-width: 999px;
+}
+
+p {
+    margin: 0;
+}
+
+button {
+    padding: 0;
+    transition: 0.3s;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.width-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.primary-button {
+    text-align: center;
+    padding: 8px 35px;
+    background-image: var(--primary-gradient);
+    color: white;
+    border-radius: 50px;
+    box-shadow: inset 0 1px 2px 0 rgba(97, 97, 97, 0.2), inset 0 3px 4px 0 rgba(97, 97, 97, 0.2);
+
+    &:hover {
+        box-shadow: 0 1px 2px 0 rgba(97, 97, 97, 0.2), 0 3px 4px 0 rgba(97, 97, 97, 0.2);;
+    }
+}
+
+@import './header-panel.scss';
+@import './layout.scss';
+@import './layer-editor-window.scss';
+@import './custom-options.scss';

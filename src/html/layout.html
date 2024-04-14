@@ -1,0 +1,232 @@
+<div class="width-container">
+    <div class="layout">
+        <div class="preview-container layout__preview">
+            <div class="preview-container__gallery">
+                <div class="gallery-item selected" id="gallery-item_1"><img src="@img/testIMG.png" width="100%" alt=""></div>
+                <div class="gallery-item" id="gallery-item_2"><img src="@img/Horn(4).jpg" width="100%" alt=""></div>
+                <div class="gallery-item" id="gallery-item_3"><img src="@img/Pi-symbol.svg-removebg-preview.png" width="100%" alt=""></div>
+                <label for="add-photo" class="preview-container__add-photo"></label>
+                <input type="file" style="display: none;" name="add-photo" id="add-photo">
+            </div>
+            <div class="workspace preview-container__workspace">
+                <div class="workspace__canvas">
+                    <img src="@img/testIMG.png" width="100%" alt="" draggable="false">
+                </div>
+                <div class="workspace__size-buttons">
+                    <button class="workspace__size-button" id="bigger">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_1_14372)">
+                              <path d="M23.7068 22.2938L17.7378 16.3248C19.3644 14.3354 20.1642 11.7969 19.9716 9.23432C19.7791 6.67179 18.609 4.28129 16.7034 2.55728C14.7977 0.833269 12.3024 -0.0923492 9.73342 -0.0281174C7.16447 0.0361144 4.71849 1.08528 2.9014 2.90237C1.08431 4.71946 0.0351379 7.16545 -0.029094 9.7344C-0.0933258 12.3034 0.832293 14.7987 2.5563 16.7043C4.28031 18.61 6.67081 19.7801 9.23334 19.9726C11.7959 20.1651 14.3344 19.3654 16.3238 17.7388L22.2928 23.7078C22.4814 23.8899 22.734 23.9907 22.9962 23.9884C23.2584 23.9862 23.5092 23.881 23.6946 23.6956C23.88 23.5102 23.9852 23.2594 23.9875 22.9972C23.9897 22.735 23.8889 22.4824 23.7068 22.2938ZM9.99978 18.0008C8.41753 18.0008 6.87081 17.5316 5.55522 16.6525C4.23963 15.7735 3.21425 14.524 2.60875 13.0622C2.00324 11.6004 1.84482 9.99189 2.1535 8.44004C2.46218 6.88819 3.22411 5.46272 4.34293 4.3439C5.46175 3.22508 6.88721 2.46316 8.43906 2.15448C9.99091 1.84579 11.5994 2.00422 13.0613 2.60972C14.5231 3.21522 15.7725 4.2406 16.6515 5.5562C17.5306 6.87179 17.9998 8.41851 17.9998 10.0008C17.9974 12.1218 17.1538 14.1552 15.654 15.655C14.1542 17.1548 12.1208 17.9984 9.99978 18.0008Z" fill="#939292" />
+                              <path d="M13 8.99999H11V7C11 6.73478 10.8946 6.48043 10.7071 6.29289C10.5196 6.10536 10.2652 6 9.99999 6C9.73478 6 9.48042 6.10536 9.29289 6.29289C9.10535 6.48043 8.99999 6.73478 8.99999 7V8.99999H7C6.73478 8.99999 6.48043 9.10535 6.29289 9.29289C6.10536 9.48042 6 9.73478 6 9.99999C6 10.2652 6.10536 10.5196 6.29289 10.7071C6.48043 10.8946 6.73478 11 7 11H8.99999V13C8.99999 13.2652 9.10535 13.5196 9.29289 13.7071C9.48042 13.8946 9.73478 14 9.99999 14C10.2652 14 10.5196 13.8946 10.7071 13.7071C10.8946 13.5196 11 13.2652 11 13V11H13C13.2652 11 13.5196 10.8946 13.7071 10.7071C13.8946 10.5196 14 10.2652 14 9.99999C14 9.73478 13.8946 9.48042 13.7071 9.29289C13.5196 9.10535 13.2652 8.99999 13 8.99999Z" fill="#939292" />
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_1_14372">
+                                <rect width="24" height="24" fill="white" />
+                              </clipPath>
+                            </defs>
+                        </svg>
+                    </button>
+                    <button class="workspace__size-button" id="smaller">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_1_14375)">
+                              <path d="M23.7068 22.2938L17.7378 16.3248C19.3644 14.3354 20.1642 11.7969 19.9716 9.23432C19.7791 6.67179 18.609 4.28129 16.7034 2.55728C14.7977 0.833269 12.3024 -0.0923492 9.73342 -0.0281174C7.16447 0.0361144 4.71849 1.08528 2.9014 2.90237C1.08431 4.71946 0.0351379 7.16545 -0.029094 9.7344C-0.0933258 12.3034 0.832293 14.7987 2.5563 16.7043C4.28031 18.61 6.67081 19.7801 9.23334 19.9726C11.7959 20.1651 14.3344 19.3654 16.3238 17.7388L22.2928 23.7078C22.4814 23.8899 22.734 23.9907 22.9962 23.9884C23.2584 23.9862 23.5092 23.881 23.6946 23.6956C23.88 23.5102 23.9852 23.2594 23.9875 22.9972C23.9897 22.735 23.8889 22.4824 23.7068 22.2938ZM9.99978 18.0008C8.41753 18.0008 6.87081 17.5316 5.55522 16.6525C4.23963 15.7735 3.21425 14.524 2.60875 13.0622C2.00324 11.6004 1.84482 9.99189 2.1535 8.44004C2.46218 6.88819 3.22411 5.46272 4.34293 4.3439C5.46175 3.22508 6.88721 2.46316 8.43906 2.15448C9.99091 1.84579 11.5994 2.00422 13.0613 2.60972C14.5231 3.21522 15.7725 4.2406 16.6515 5.5562C17.5306 6.87179 17.9998 8.41851 17.9998 10.0008C17.9974 12.1218 17.1538 14.1552 15.654 15.655C14.1542 17.1548 12.1208 17.9984 9.99978 18.0008Z" fill="#939292" />
+                              <path d="M13 9H7C6.73478 9 6.48043 9.10536 6.29289 9.29289C6.10536 9.48043 6 9.73478 6 10C6 10.2652 6.10536 10.5196 6.29289 10.7071C6.48043 10.8946 6.73478 11 7 11H13C13.2652 11 13.5196 10.8946 13.7071 10.7071C13.8946 10.5196 14 10.2652 14 10C14 9.73478 13.8946 9.48043 13.7071 9.29289C13.5196 9.10536 13.2652 9 13 9Z" fill="#939292" />
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_1_14375">
+                                <rect width="24" height="24" fill="white" />
+                              </clipPath>
+                            </defs>
+                          </svg>
+                    </button>
+                </div>
+                <div class="select-size workspace__select-size">
+                    <div class="select-size__value">
+                        <span>100%</span>
+                        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 1L5 5L1 1" stroke="#939292" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <ul class="select-size__dropdown">
+                        <li class="select-size__option">200%</li>
+                        <li class="select-size__option">150%</li>
+                        <li class="select-size__option">100%</li>
+                        <li class="select-size__option">75%</li>
+                        <li class="select-size__option">50%</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="layer-manager preview-container__layer-manager">
+                <button class="layer-manager__button" id="create-layer">
+                    <img src="@img/icons/free-icon-font-layer-plus- 7931073.svg" alt="" draggable="false">
+                </button>
+                <button class="layer-manager__button" id="edit-layers">
+                    <img src="@img/icons/free-icon-layer-black 1.svg" alt="" draggable="false">
+                </button>
+            </div>
+        </div>
+        <div class="menu layout__menu">
+            <div class="menu__edit-options open">
+                <div class="menu__heading">
+                    <p class="menu__product-title">Product Title</p>
+                    <p class="menu__product-discription">Product Discription</p>
+                </div>
+                <div class="steps menu__steps">
+                    <ul class="steps__tab-list">
+                        <li class="steps__tab selected" id="step-tab_1">Step 1</li>
+                        <li class="steps__tab" id="step-tab_2">Step 2</li>
+                        <button class="steps__add-button" id="add-step-button">Step</button>
+                    </ul>
+                    <div class="steps__wrapper">
+                        <div class="step steps__step-content open" id="step-content_1">
+                            <div class="custom-option step__custom-option" id="color-custom-option">
+                                <div class="custom-option__row custom-option__row_title">
+                                    <img src="@img/custom-options/visibility.svg" class="custom-option__visibility" alt="">
+                                    <span class="custom-option__title">Title</span>
+                                    <img src="@img/custom-options/collapse.svg" alt="" class="custom-option__collapse-button">
+                                </div>
+                                <div class="custom-option__row custom-option__row_color-choices">
+                                    <div class="choices-container">
+                                        <div class="custom-option__color-choice" id="color-choice_1"></div>
+                                        <div class="custom-option__color-choice" id="color-choice_2"></div>
+                                        <div class="custom-option__color-choice" id="color-choice_3"></div>
+                                        <div class="custom-option__color-choice" id="color-choice_4"></div>
+                                        <div class="custom-option__color-choice" id="color-choice_5"></div>
+                                    </div>
+                                    <div class="custom-option__layer-controls">
+                                        <img src="@img/custom-options/Link.png" alt="">
+                                        <img src="@img/custom-options/conect-layer.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="custom-option__row custom-option__row_actions">
+                                    <img src="@img/custom-options/move-to-another-step.svg" alt="">
+                                    <img src="@img/custom-options/Copy.svg" alt="">
+                                    <img src="@img/custom-options/delete.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="custom-option step__custom-option" id="radio-buttons-custom-option">
+                                <div class="custom-option__row custom-option__row_title">
+                                    <img src="@img/custom-options/visibility.svg" class="custom-option__visibility" alt="">
+                                    <span class="custom-option__title">Title</span>
+                                    <img src="@img/custom-options/collapse.svg" alt="" class="custom-option__collapse-button">
+                                </div>
+                                <div class="custom-option__row custom-option__row_radio-buttons-choices">
+                                    <div class="choices-container">
+                                        <div class="input-wrapper"><input type="radio" name="radio-buttons-choice" class="custom-option__radio-buttons-choice" id="radio-buttons-choice_1" checked><label for="radio-buttons-choice_1">Choice</label></div>
+                                        <div class="input-wrapper"><input type="radio" name="radio-buttons-choice" class="custom-option__radio-buttons-choice" id="radio-buttons-choice_2"><label for="radio-buttons-choice_2">Choice</label></div>
+                                    </div>
+                                    <div class="custom-option__layer-controls">
+                                        <img src="@img/custom-options/Link.png" alt="">
+                                        <img src="@img/custom-options/conect-layer.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="custom-option__row custom-option__row_actions">
+                                    <img src="@img/custom-options/move-to-another-step.svg" alt="">
+                                    <img src="@img/custom-options/Copy.svg" alt="">
+                                    <img src="@img/custom-options/delete.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step steps__step-content" id="step-content_2">
+                            <h1>options2</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layer-editor-wrapper">
+                <div class="layer-editor">
+                    <p class="layer-editor__title">LAYER SETTINGS</p>
+                    <div class="layer-editor__types">
+                        <img src="@img/layers-editor/Image-Area-Button.svg" alt="">
+                        <img src="@img/layers-editor/Image-Button.svg" alt="">
+                        <img src="@img/layers-editor/Simple-text-Button.svg" alt="">
+                        <img src="@img/layers-editor/Corved-Text-Button.svg" alt="">
+                    </div>
+                    <p class="layer-editor__title-for-layer">Layer title...</p>
+                    <div class="layer-editor__"></div>
+                </div>
+            </div>
+            <div class="edit-layers menu__edit-layers">
+                <div class="edit-layers__close-button"></div>
+                <p class="edit-layers__title">ALL LAYERS</p>
+                <div class="edit-layers__sort-search"></div>
+                <ul class="layers-list edit-layers__layers-list">
+                    <li class="layers-list__layer-item">Layer Title</li>
+                    <li class="layers-list__layer-item">Layer Title</li>
+                    <li class="layers-list__layer-item">Layer Title</li>
+                    <li class="layers-list__layer-item">Layer Title</li>
+                    <li class="layers-list__layer-item">Layer Title</li>
+                    <li class="layers-list__layer-item">Layer Title</li>
+                    <li class="layers-list__layer-item">Layer Title</li>
+                    <li class="layers-list__layer-item">Layer Title</li>
+                    <li class="layers-list__layer-item">Layer Title</li>
+                    <li class="layers-list__layer-item">Layer Title</li>
+                    <li class="layers-list__layer-item">Layer Title</li>
+                </ul>
+            </div>
+        </div>
+        <div class="layer-editor-window">
+            <ul class="layer-editor-window__tabs">
+                <li class="layer-editor-window__tab selected" id="layer-editor-window-tab_1">Image Sourse</li>
+                <li class="layer-editor-window__tab" id="layer-editor-window-tab_2">Color</li>
+                <li class="layer-editor-window__tab" id="layer-editor-window-tab_3">Advanced</li>
+                <li class="layer-editor-window__tab" id="layer-editor-window-tab_4">Logic</li>
+                <li class="layer-editor-window__close-button"></li>
+            </ul>
+            <form class="layer-editor-window__content open" id="image-source">
+                <div class="image-source__left">
+                    <div class="input-wrapper"><input type="radio" value="none" id="sourse__none" name="sourse"><label for="sourse__none">No Option</label></div>
+                    <div class="input-wrapper"><input type="radio" value="option" id="sourse__option" name="sourse" checked><label for="sourse__option">Display image from Image Thumbnail custom option</label></div>
+                    <div class="input-wrapper"><input type="radio" value="upload" id="sourse__upload" name="sourse"><label for="sourse__upload">Display image from File Upload</label></div>
+                </div>
+                <div class="image-source__right">
+                    <img src="@img/Drop Zone.png" alt="">
+                </div>
+                <div class="flex-bottom image-source__bottom">
+                    <div>
+                        <label for="image-source__step">Step</label>
+                        <select name="image-source__step" id="image-source__step">
+                            <option value="none">Not Selected</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="image-source__custom-option">Custom Option</label>
+                        <select name="image-source__custom-option" id="image-source__custom-option">
+                            <option value="none">Not Selected</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <form class="layer-editor-window__content" id="color">
+                <div class="color__left">
+                    <div class="input-wrapper"><input type="radio" value="none" id="color__none" name="sourse"><label for="color__none">No Color</label></div>
+                    <div class="input-wrapper"><input type="radio" value="option" id="color__option" name="sourse" checked><label for="color__option">Colorize from Color Thumbnail custom option</label></div>
+                    <div class="input-wrapper"><input type="radio" value="palette" id="color__palette" name="sourse"><label for="color__palette">Colorize image from Color Palette</label></div>
+                </div>
+            </form>
+            <form class="layer-editor-window__content" id="advanced">
+                <div class="advanced__left">
+                    <p class="advanced__title">User Interaction Effects</p>
+                    <span class="discription">Default Layer Color</span>
+                    <div class="input-wrapper"><label for="advanced__color-picker">Color</label><input type="color" id="advanced__color-picker" name="advanced__color-picker"></div>
+                </div>
+                <div class="advanced__right">
+                    <div class="input-wrapper"><label for="advanced__active-layer-color">Active layer color</label><input type="color" id="advanced__active-layer-color" name="advanced__active-layer-color"></div>
+                    <div class="input-wrapper"><label for="advanced__default-layer-color">Default layer color</label><input type="color" id="advanced__default-layer-color" name="advanced__default-layer-color"></div>
+                    <div class="input-wrapper"><label for="advanced__layer-hover-effect-color">Layer hover effect color</label><input type="color" id="advanced__layer-hover-effect-color" name="advanced__layer-hover-effect-color"></div>
+                </div>
+                <div class="flex-bottom advanced__bottom">
+                    <div class="input-wrapper">
+                        <input type="checkbox" id="make-visible" name="make-visible">
+                        <label for="make-visible">Make layer always visible (Needs to be top Layer)</label>
+                    </div>
+                </div>
+            </form>
+            <form class="layer-editor-window__content" id="logic">
+                <button class="logic__add-logic primary-button" id="add-logic-rule" data-rules-qty="0">Add Logic Rule</button>
+            </form>
+        </div>
+    </div>
+</div>
