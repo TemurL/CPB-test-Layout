@@ -95,7 +95,11 @@
                                     </div>
                                     <div class="custom-option__layer-controls">
                                         <img src="@img/custom-options/Link.png" alt="">
-                                        <img src="@img/custom-options/conect-layer.png" alt="">
+                                        <img class="custom-option__add-layer-button" src="@img/icons/free-icon-font-layer-plus- 7931073.svg" alt="">
+                                        <ul class="custom-option__add-layer-dropdown">
+                                            <li class="dropdown_create">Create new Layer</li>
+                                            <li class="dropdown_select-from">Select from created layers</li>
+                                        </ul>
                                     </div>
                                 </div>
                                 <div class="custom-option__row custom-option__row_actions">
@@ -117,7 +121,7 @@
                                     </div>
                                     <div class="custom-option__layer-controls">
                                         <img src="@img/custom-options/Link.png" alt="">
-                                        <img src="@img/custom-options/conect-layer.png" alt="">
+                                        <img src="@img/icons/free-icon-font-layer-plus- 7931073.svg" alt="">
                                     </div>
                                 </div>
                                 <div class="custom-option__row custom-option__row_actions">
@@ -143,7 +147,13 @@
                         <img src="@img/layers-editor/Corved-Text-Button.svg" alt="">
                     </div>
                     <p class="layer-editor__title-for-layer">Layer title...</p>
-                    <div class="layer-editor__"></div>
+                    <div class="layer-editor__">
+                        <h1>layer editor</h1>
+                    </div>
+                    <div class="layer-editor__action-buttons">
+                        <button class="layer-editor__action-button" id="cancel">Cancel</button>
+                        <button class="layer-editor__action-button primary-button" id="apply">Apply</button>
+                    </div>
                 </div>
             </div>
             <div class="edit-layers menu__edit-layers">
@@ -151,17 +161,17 @@
                 <p class="edit-layers__title">ALL LAYERS</p>
                 <div class="edit-layers__sort-search"></div>
                 <ul class="layers-list edit-layers__layers-list">
-                    <li class="layers-list__layer-item">Layer Title</li>
-                    <li class="layers-list__layer-item">Layer Title</li>
-                    <li class="layers-list__layer-item">Layer Title</li>
-                    <li class="layers-list__layer-item">Layer Title</li>
-                    <li class="layers-list__layer-item">Layer Title</li>
-                    <li class="layers-list__layer-item">Layer Title</li>
-                    <li class="layers-list__layer-item">Layer Title</li>
-                    <li class="layers-list__layer-item">Layer Title</li>
-                    <li class="layers-list__layer-item">Layer Title</li>
-                    <li class="layers-list__layer-item">Layer Title</li>
-                    <li class="layers-list__layer-item">Layer Title</li>
+                    <li class="layers-list__layer-item" data-layer-type="image-area">Layer Title</li>
+                    <li class="layers-list__layer-item" data-layer-type="curved-text">Layer Title</li>
+                    <li class="layers-list__layer-item" data-layer-type="simple-text">Layer Title</li>
+                    <li class="layers-list__layer-item" data-layer-type="curved-text">Layer Title</li>
+                    <li class="layers-list__layer-item" data-layer-type="curved-text">Layer Title</li>
+                    <li class="layers-list__layer-item" data-layer-type="image-area">Layer Title</li>
+                    <li class="layers-list__layer-item" data-layer-type="image">Layer Title</li>
+                    <li class="layers-list__layer-item" data-layer-type="auto">Layer Title</li>
+                    <li class="layers-list__layer-item" data-layer-type="image">Layer Title</li>
+                    <li class="layers-list__layer-item" data-layer-type="simple-text">Layer Title</li>
+                    <li class="layers-list__layer-item" data-layer-type="auto">Layer Title</li>
                 </ul>
             </div>
         </div>

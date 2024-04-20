@@ -1,4 +1,5 @@
 import { canvasSizing } from './modules/canvasSizing.js';
+import { dropdownAddLayer } from './modules/dropdownAddLayer.js';
 import { editLayersBtn } from './modules/editLayersBtn.js';
 import * as TLFunc from './modules/functions.js'
 import { gallerySelect } from './modules/gallerySelect.js';
@@ -29,3 +30,4 @@ editLayersBtn();
 selectLayerForEdit();
 layerEditorWindow();
 logicRulesScripts();
+dropdownAddLayer();

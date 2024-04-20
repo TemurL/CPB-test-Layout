@@ -65,3 +65,34 @@
         flex-direction: column;
     }
 }
+
+
+.custom-option__layer-controls {
+    position: relative;
+}
+
+.custom-option__add-layer-dropdown {
+    position: absolute;
+    top: 100%;
+    width: max-content;
+    right: 100%;
+    background-color: white;
+    padding: 0 24px;
+    border: 1px solid #939292;
+    border-radius: 10px;
+    display: none;
+    &.open {
+        display: block;
+    }
+    li {
+        margin-block: 24px;
+        font-size: 14px;
+        color: #939292;
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            color: black;
+        }
+    }
+}

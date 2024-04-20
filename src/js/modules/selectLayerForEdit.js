@@ -1,6 +1,6 @@
 import { closeLayerEditorWindow, openLayerEditorWindow } from "./layer-editor-window.js";
 
-const layesUl = document.querySelectorAll('.layers-list__layer-item');
+const layesUl = document.getElementsByClassName('layers-list__layer-item');
 
 const openEditor = () => {
     document.querySelector('.layer-editor-wrapper').classList.add('open');
@@ -13,26 +13,25 @@ const closeEditor = () => {
     closeLayerEditorWindow();
 }
 
-export const selectLayerForEdit = () => {
-    
-    const clickHandler = (e) => {
-        if (e.currentTarget.classList.contains('open-edit')) return
-        layesUl.forEach(l => {
-            if (l.classList.contains('open-edit')) {
-                l.classList.remove('open-edit');
-            }
-        })
-        e.currentTarget.classList.add('open-edit');
-        openEditor();
-    }
-    
-    layesUl.forEach(item => {
-        item.addEventListener('click', clickHandler);
+export const clickHandlerForLayerLi = (e) => {
+    if (e.currentTarget.classList.contains('open-edit')) return
+    Array.from(layesUl).forEach(l => {
+        if (l.classList.contains('open-edit')) {
+            l.classList.remove('open-edit');
+        }
+    })
+    e.currentTarget.classList.add('open-edit');
+    openEditor();
+}
+
+export const selectLayerForEdit = () => {    
+    Array.from(layesUl).forEach(item => {
+        item.addEventListener('click', clickHandlerForLayerLi);
     })
 }
 
 export const cleanSelectionFromLayers = () => {
-    layesUl.forEach(item => {
+    Array.from(layesUl).forEach(item => {
         if (item.classList.contains('open-edit')) item.classList.remove('open-edit');
         closeEditor();
     })

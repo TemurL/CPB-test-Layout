@@ -177,13 +177,26 @@
 
     .layer-manager {
         .layer-manager__button {
+            position: relative;
             display: block;
             width: 48px;
             height: 48px;
             padding: 8px;
+            margin-bottom: 3px;
+            background-color: #FFF;
 
             &:hover img {
                 stroke: black;
+            }
+
+            &.active::before {
+                content: "";
+                position: absolute;
+                inset: -2px;
+                transform: translate3d(0px, 0px, -1px); /* (X, Y, Z) */
+                background: var(--primary-gradient);
+                border-radius: 2px;
+                z-index: -1;
             }
         }
     }
@@ -367,6 +380,32 @@
             border-radius: 4px;
             cursor: pointer;
 
+            &[data-layer-type="auto"] {
+                color: #939292;
+            }
+
+            &::before {
+                vertical-align: middle;
+                margin-inline: 5px;
+                width: 16px;
+            }
+
+            &[data-layer-type="image"]::before {
+                content: url('../img/layers-editor/layers-list-type/image.svg');
+            }
+            &[data-layer-type="auto"]::before {
+                content: url('../img/layers-editor/layers-list-type/auto.svg');
+            }
+            &[data-layer-type="simple-text"]::before {
+                content: url('../img/layers-editor/layers-list-type/simple-text.svg');
+            }
+            &[data-layer-type="curved-text"]::before {
+                content: url('../img/layers-editor/layers-list-type/curved-text.svg');
+            }
+            &[data-layer-type="image-area"]::before {
+                content: url('../img/layers-editor/layers-list-type/image-area.svg');
+            }
+
             &.open-edit {
                 background-image: var(--primary-gradient);
                 color: white;
@@ -418,6 +457,23 @@
             margin-bottom: 1rem;
             > * {
                 margin-inline: 1rem;
+            }
+        }
+    }
+
+    .layer-editor__action-buttons {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 2rem;
+
+        .layer-editor__action-button {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;  
+            font-size: 12px;
+
+            &#cancel {
+                color: #CB4860;
             }
         }
     }
