@@ -1,6 +1,12 @@
 .custom-option {
     padding-inline: 5px;
     border-block: 1px dashed #939292;
+    transition: 0.3s;
+    background: white;
+
+    &:hover {
+        background: linear-gradient(80.66deg, rgba(0, 178, 208, 0.1) 14.78%, rgba(173, 255, 221, 0.1) 85.89%);
+    }
 }
 
 .custom-option__row {

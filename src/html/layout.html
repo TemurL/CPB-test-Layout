@@ -67,16 +67,18 @@
         </div>
         <div class="menu layout__menu">
             <div class="menu__edit-options open">
-                <div class="menu__heading">
-                    <p class="menu__product-title">Product Title</p>
-                    <p class="menu__product-discription">Product Discription</p>
+                <div class="menu__top-block">
+                    <div class="menu__heading">
+                        <p class="menu__product-title">Product Title</p>
+                        <p class="menu__product-discription">Product Discription</p>
+                    </div>
+                    <ul class="tab-list">
+                        <li class="tab-list__tab selected" id="step-tab_1">Step 1</li>
+                        <li class="tab-list__tab" id="step-tab_2">Step 2</li>
+                        <button class="tab-list__add-button" id="add-step-button">Step</button>
+                    </ul>
                 </div>
                 <div class="steps menu__steps">
-                    <ul class="steps__tab-list">
-                        <li class="steps__tab selected" id="step-tab_1">Step 1</li>
-                        <li class="steps__tab" id="step-tab_2">Step 2</li>
-                        <button class="steps__add-button" id="add-step-button">Step</button>
-                    </ul>
                     <div class="steps__wrapper">
                         <div class="step steps__step-content open" id="step-content_1">
                             <div class="custom-option step__custom-option" id="color-custom-option">
@@ -157,9 +159,11 @@
                 </div>
             </div>
             <div class="edit-layers menu__edit-layers">
-                <div class="edit-layers__close-button"></div>
-                <p class="edit-layers__title">ALL LAYERS</p>
-                <div class="edit-layers__sort-search"></div>
+                <div class="edit-layers__sticky-block menu__top-block">
+                    <div class="edit-layers__close-button"></div>
+                    <p class="edit-layers__title">ALL LAYERS</p>
+                    <div class="edit-layers__sort-search"></div>
+                </div>
                 <ul class="layers-list edit-layers__layers-list">
                     <li class="layers-list__layer-item" data-layer-type="image-area">Layer Title</li>
                     <li class="layers-list__layer-item" data-layer-type="curved-text">Layer Title</li>

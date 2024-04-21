@@ -1,6 +1,7 @@
 .layout {
+    --sticky-elements-top: 45px;
     position: relative;
-    margin-block: 55px;
+    // margin-block: 55px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -9,7 +10,8 @@
     .layout__preview {
         flex-basis: var(--preview-width-ratio);
         position: sticky;
-        top: 100px;
+        top: var(--sticky-elements-top);
+        padding-top: 55px;
     }
     .layout__menu {
         flex-basis: calc(100% - var(--preview-width-ratio));
@@ -211,6 +213,7 @@
         &.open {
             display: block;
         }
+
         &.layer-editor-wrapper.open {
             display: grid;
         }
@@ -223,6 +226,92 @@
     .menu__product-title,
     .menu__product-discription {
         margin-block-end: 1rem;
+    }
+
+
+    .menu__top-block {
+        position: sticky;
+        transition-duration: 0.3s;
+        transition-property: padding;
+        top: 45px;
+        padding-top: 55px;
+        background-color: white;
+        z-index: 1;
+    }
+}
+
+.tab-list {
+    display: flex;
+    overflow: scroll;
+    margin-bottom: 1rem;
+
+    li,
+    button {
+        border-bottom: 1px solid #939292;
+        padding: 8px 20px;
+        color: #939292;
+        transition: color 0.3s;
+        cursor: pointer;
+        text-wrap: nowrap;
+        outline: none;
+
+        &:hover {
+            color: black;
+        }
+    }
+
+    li.selected {
+        position: relative;
+        border: 1px solid transparent;
+        border-color: #939292;
+        border-radius: 10px 10px 0px 0;
+        border-bottom-color: transparent;
+        color: black;
+
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 100%;
+            width: 12px;
+            height: 12px;
+            background-image: url('../img/icons/step-corner.svg');
+            rotate: 90deg;
+            background-size: 109%;
+            background-position: center;
+            z-index: 1;
+        }
+
+        &::before {
+            left: auto;
+            right: 100%;
+            rotate: 0deg;                
+        }
+
+    }
+
+    button {
+        display: block;
+        flex-grow: 1;
+        text-align: start;
+        position: relative;
+        padding-inline-start: 35px;
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 2px;
+            border-radius: 5px;
+            background-image: var(--primary-gradient);
+            top: calc(50% - 1px);
+            left: 10px;
+        }
+
+        &::after {
+            rotate: 90deg;
+        }
     }
 }
 
@@ -306,10 +395,9 @@
     }
 
     .steps__wrapper {
-        min-height: 1500px;
-
         .steps__step-content {
             display: none;
+            height: 1500px;
 
             &.open {
                 display: block;
@@ -318,17 +406,33 @@
     }
 }
 
-
 .edit-layers {
     position: relative;
+    transition: 0.3s;
 
-    &::before {
-        content: '';
-        display: block;
-        height: 2px;
-        background-image: var(--primary-gradient);
+    .edit-layers__sticky-block {
+        top: 0;
+        padding-top: 55px;
+        padding-bottom: 1rem;
+
+        > * {
+            margin-block: 1rem;
+            &:first-child {
+                margin-top: 0;
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            height: 2px;
+            background-image: var(--primary-gradient);
+        }
+
     }
-
 
     > * {
         margin-block: 1rem;
@@ -427,14 +531,26 @@
     }
 }
 
+.layer-editor-wrapper.open + .edit-layers .edit-layers__sticky-block {
+    top: calc(var(--layer-editor-height) + 45px);
+    padding-top: 0px;
+}
+
 .layer-editor-wrapper {
     display: grid;
     grid-template-rows: 0fr;
     overflow: hidden;
     transition: 0.45s;
+    opacity: 0;
+    background-color: white;
 
     &.open {
         grid-template-rows: 1fr;
+        opacity: 1;
+        position: sticky;
+        top: 45px;
+        padding-top: 55px;
+        z-index: 1;
 
         .layer-editor {
             padding-bottom: 1rem;

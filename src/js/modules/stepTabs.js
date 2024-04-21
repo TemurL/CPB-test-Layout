@@ -1,10 +1,10 @@
 export const stepTabs = () => {
-    let tabs = document.querySelectorAll('.steps__tab');
+    let tabs = document.querySelectorAll('.tab-list__tab');
     const addStepBtn = document.querySelector('#add-step-button');
     const stepsWrapper = document.querySelector('.steps__wrapper');
 
     const tabClickHandler = (e) => {
-        tabs = document.querySelectorAll('.steps__tab');
+        tabs = document.querySelectorAll('.tab-list__tab');
         if (e.currentTarget.classList.contains('selected')) {
             e.currentTarget.setAttribute('contenteditable', 'true');
             return
@@ -16,6 +16,7 @@ export const stepTabs = () => {
         let index = e.currentTarget.id.split('_')[1];
 
         stepsWrapper.querySelector('.open').classList.remove('open');
+        console.log('here');
         stepsWrapper.children[index - 1].classList.add('open');
     }
 
@@ -24,16 +25,16 @@ export const stepTabs = () => {
     })
 
     const createStep = (e) => {
-        let stepsLenght = document.querySelectorAll('.steps__tab').length
+        let stepsLenght = document.querySelectorAll('.tab-list__tab').length
         const newTab = document.createElement('li');
-        newTab.classList.add('steps__tab');
+        newTab.classList.add('tab-list__tab');
         newTab.id = `steps-tab_${stepsLenght + 1}`;
         newTab.textContent = `Step ${stepsLenght + 1}`;
         newTab.addEventListener('click', tabClickHandler);
         e.currentTarget.insertAdjacentElement('beforebegin', newTab);
 
         const newStepContent = document.createElement('div');
-        newStepContent.classList.add('steps__step-content');
+        newStepContent.classList.add('tab-list__step-content');
         newStepContent.id = `steps-content_${stepsLenght + 1}`;
         stepsWrapper.insertAdjacentElement('beforeend', newStepContent);
 
