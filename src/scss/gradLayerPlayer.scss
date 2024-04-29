@@ -1,0 +1,58 @@
+.link-layers__layers-list .layers-list__layer-item {
+    position: relative;
+    transition: 0.3s;
+    border: 2px solid transparent;
+}
+.link-layers__layers-list .layers-list__layer-item.dragging {
+    border: 2px solid #5EC7C7;
+    padding-block: 1rem !important;
+    z-index: 10;
+}
+
+.link-layers__layers-list .layers-list__layer-item.dont-drag {
+    border: 2px solid red;
+}
+
+.link-layers__layers-list .layers-list__layer-item.connected::after {
+    content: 'isConnected';
+    position: absolute;
+    right: 10px;
+    color: gray;
+    margin-inline-start: auto;
+}
+
+.drag-layer-player {
+    position: absolute;
+    width: 50px;
+    aspect-ratio: 1;
+    background-color: black;
+    scale: 0;
+    opacity: 0;
+    border-radius: 7px;
+    left: calc(var(--pos-x, 50%) - 25px);
+    top: calc(var(--pos-y, 50%) - 25px);
+    animation: scaleIn .3s ease 1 forwards;
+}
+
+@keyframes scaleIn {
+    0% {
+        scale: 0;
+        opacity: 0;
+    }
+
+    100% {
+        scale: 1;
+        opacity: 1;
+    }
+}
+@keyframes scaleOut {
+    0% {
+        scale: 1;
+        opacity: 1;
+    }
+
+    100% {
+        scale: 0;
+        opacity: 0;
+    }
+}

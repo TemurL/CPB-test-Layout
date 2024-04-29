@@ -1,7 +1,6 @@
 .layout {
     --sticky-elements-top: 45px;
     position: relative;
-    // margin-block: 55px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -178,6 +177,7 @@
     }
 
     .layer-manager {
+        position: relative;
         .layer-manager__button {
             position: relative;
             display: block;
@@ -201,6 +201,41 @@
                 z-index: -1;
             }
         }
+    }
+}
+
+.link-layers-wrapper {
+    display: none;
+    position: absolute;
+    right: calc(100% + 6px);
+    top: 0;
+    width: 460px;
+    background-color: rgba(255, 255, 255, 0.828);
+    backdrop-filter: blur(10px);
+    padding: 32px 8px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    z-index: 10;
+    max-height: 500px;
+    overflow: scroll;
+    animation: slideIn 0.35s cubic-bezier(0.51, 0.06, 0.41, 1.36) 0s 1 forwards;
+    &.open {
+        display: block;
+    }
+    p {
+        text-align: center;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        translate: 0 150px;
+    }
+
+    100% {
+        opacity: 1;
+        translate: 0 0;
     }
 }
 
@@ -471,62 +506,62 @@
     .edit-layers__title {
         text-align: center;
     }
+}
 
-    ul.layers-list {
-        list-style: auto;
-        display: flex;
-        flex-direction: column-reverse;
-        list-style-position: inside;
-        .layers-list__layer-item {
-            line-height: 150%;
-            padding: 5px 10px;
-            font-size: 14px;
-            border-radius: 4px;
-            cursor: pointer;
+ul.layers-list {
+    list-style: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    list-style-position: inside;
+    .layers-list__layer-item {
+        line-height: 150%;
+        padding: 5px 10px;
+        font-size: 14px;
+        border-radius: 4px;
+        cursor: pointer;
 
-            &[data-layer-type="auto"] {
-                color: #939292;
-            }
+        &[data-layer-type="auto"] {
+            color: #939292;
+        }
 
-            &::before {
-                vertical-align: middle;
-                margin-inline: 5px;
-                width: 16px;
-            }
+        &::before {
+            vertical-align: middle;
+            margin-inline: 5px;
+            width: 16px;
+        }
 
-            &[data-layer-type="image"]::before {
-                content: url('../img/layers-editor/layers-list-type/image.svg');
-            }
-            &[data-layer-type="auto"]::before {
-                content: url('../img/layers-editor/layers-list-type/auto.svg');
-            }
-            &[data-layer-type="simple-text"]::before {
-                content: url('../img/layers-editor/layers-list-type/simple-text.svg');
-            }
-            &[data-layer-type="curved-text"]::before {
-                content: url('../img/layers-editor/layers-list-type/curved-text.svg');
-            }
-            &[data-layer-type="image-area"]::before {
-                content: url('../img/layers-editor/layers-list-type/image-area.svg');
-            }
+        &[data-layer-type="image"]::before {
+            content: url('../img/layers-editor/layers-list-type/image.svg');
+        }
+        &[data-layer-type="auto"]::before {
+            content: url('../img/layers-editor/layers-list-type/auto.svg');
+        }
+        &[data-layer-type="simple-text"]::before {
+            content: url('../img/layers-editor/layers-list-type/simple-text.svg');
+        }
+        &[data-layer-type="curved-text"]::before {
+            content: url('../img/layers-editor/layers-list-type/curved-text.svg');
+        }
+        &[data-layer-type="image-area"]::before {
+            content: url('../img/layers-editor/layers-list-type/image-area.svg');
+        }
 
-            &.open-edit {
-                background-image: var(--primary-gradient);
-                color: white;
-
-                &::marker {
-                    color: white;
-                }
-            }
-
-            &:nth-child(2n) {
-                background-color: #F7F7F7;
-            }
+        &.open-edit {
+            background-image: var(--primary-gradient);
+            color: white;
 
             &::marker {
-                font-size: 10px;
-                color: #939292;
+                color: white;
             }
+        }
+
+        &:nth-child(2n) {
+            background-color: #F7F7F7;
+        }
+
+        &::marker {
+            font-size: 10px;
+            color: #939292;
         }
     }
 }

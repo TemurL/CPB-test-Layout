@@ -63,6 +63,15 @@
                 <button class="layer-manager__button" id="edit-layers">
                     <img src="@img/icons/free-icon-layer-black 1.svg" alt="" draggable="false">
                 </button>
+                <button class="layer-manager__button" id="link-layers">
+                    <img src="@img/icons/Link-layer.svg" alt="" draggable="false">
+                </button>
+                <div class="link-layers-wrapper layer-manager__link-layers-wrapper">
+                    <div class="link-layers__header">
+                        <p>ALL LAYERS</p>
+                    </div>
+                    <ul class="link-layers__layers-list layers-list" id="link-layers__layers-list"></ul>
+                </div>
             </div>
         </div>
         <div class="menu layout__menu">
@@ -165,17 +174,17 @@
                     <div class="edit-layers__sort-search"></div>
                 </div>
                 <ul class="layers-list edit-layers__layers-list">
-                    <li class="layers-list__layer-item" data-layer-type="image-area">Layer Title</li>
-                    <li class="layers-list__layer-item" data-layer-type="curved-text">Layer Title</li>
-                    <li class="layers-list__layer-item" data-layer-type="simple-text">Layer Title</li>
-                    <li class="layers-list__layer-item" data-layer-type="curved-text">Layer Title</li>
-                    <li class="layers-list__layer-item" data-layer-type="curved-text">Layer Title</li>
-                    <li class="layers-list__layer-item" data-layer-type="image-area">Layer Title</li>
-                    <li class="layers-list__layer-item" data-layer-type="image">Layer Title</li>
-                    <li class="layers-list__layer-item" data-layer-type="auto">Layer Title</li>
-                    <li class="layers-list__layer-item" data-layer-type="image">Layer Title</li>
-                    <li class="layers-list__layer-item" data-layer-type="simple-text">Layer Title</li>
-                    <li class="layers-list__layer-item" data-layer-type="auto">Layer Title</li>
+                    <li class="layers-list__layer-item" data-layer-type="image-area"><span>Layer Title</span></li>
+                    <li class="layers-list__layer-item" data-layer-type="curved-text"><span>Layer Title</span></li>
+                    <li class="layers-list__layer-item" data-layer-type="simple-text"><span>Layer Title</span></li>
+                    <li class="layers-list__layer-item" data-layer-type="curved-text"><span>Layer Title</span></li>
+                    <li class="layers-list__layer-item" data-layer-type="curved-text"><span>Layer Title</span></li>
+                    <li class="layers-list__layer-item" data-layer-type="image-area"><span>Layer Title</span></li>
+                    <li class="layers-list__layer-item" data-layer-type="image"><span>Layer Title</span></li>
+                    <li class="layers-list__layer-item" data-layer-type="auto"><span>Layer Title</span></li>
+                    <li class="layers-list__layer-item" data-layer-type="image"><span>Layer Title</span></li>
+                    <li class="layers-list__layer-item" data-layer-type="simple-text"><span>Layer Title</span></li>
+                    <li class="layers-list__layer-item" data-layer-type="auto"><span>Layer Title</span></li>
                 </ul>
             </div>
         </div>

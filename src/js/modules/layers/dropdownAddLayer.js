@@ -1,3 +1,6 @@
+import { Layers } from './newCodeForLayers.js';
+
+
 export const dropdownAddLayer = () => {
     const addLayerBtns = document.querySelectorAll('.custom-option__add-layer-button');
     const selectFromBtn = document.querySelectorAll('.dropdown_select-from');
