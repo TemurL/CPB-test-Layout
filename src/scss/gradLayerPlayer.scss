@@ -1,3 +1,15 @@
+.dragging-layer-thumb :has(:not(.custom-option__layer-controls, .custom-option__color-choice, .link-layers-wrapper)) {
+    opacity: 0.5;
+}
+
+.dragging-layer-thumb :has(.custom-option__layer-controls, .custom-option__color-choice, .link-layers-wrapper),
+.dragging-layer-thumb .custom-option__layer-controls, 
+.dragging-layer-thumb .custom-option__color-choice, 
+.dragging-layer-thumb .link-layers-wrapper,
+.dragging-layer-thumb .link-layers-wrapper * {
+    opacity: 1;
+}
+
 .link-layers__layers-list .layers-list__layer-item {
     position: relative;
     transition: 0.3s;

@@ -45,6 +45,10 @@
             align-items: center;
             background-color: #FFF;
 
+            &.selected img {
+                z-index: 1;
+            }
+
             &.selected::before {
                 content: "";
                 position: absolute;
@@ -272,6 +276,7 @@
         padding-top: 55px;
         background-color: white;
         z-index: 1;
+        opacity: 1 !important;
     }
 }
 

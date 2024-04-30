@@ -260,6 +260,9 @@ export const Layers = new class Layers{
                 player.classList.add('drag-layer-player');
                 player.style.setProperty('--pos-x', e.clientX + scrollX + 'px');
                 player.style.setProperty('--pos-y', e.clientY + scrollY + 'px');
+
+                document.body.classList.add('dragging-layer-thumb');
+
                 addEventListener('mousemove', this.linkLayersObject.docMouseMoveHandler);
                 addEventListener('mouseup', (e) => {
                     removeEventListener('mousemove', this.linkLayersObject.docMouseMoveHandler);
@@ -269,6 +272,7 @@ export const Layers = new class Layers{
                     }, 350);
                     listItem.classList.add('connected');
                     listItem.classList.remove('dragging');
+                    document.body.classList.remove('dragging-layer-thumb');
                 })
                 document.body.appendChild(player);
             },
