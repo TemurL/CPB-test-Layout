@@ -60,6 +60,10 @@ export const Layers = new class Layers{
                 this.layoutLayersIsOpen = true;
             },
             hideLayoutLayers: () => {
+                if (this.linkLayersObject.isOpen) {
+                    this.linkLayersObject.close();
+                }
+
                 this.layoutOptions.classList.add('open');
                 this.layoutLayers.classList.remove('open');
                 this.showLayersBtn.classList.remove('active');
@@ -88,6 +92,10 @@ export const Layers = new class Layers{
             },
 
             switchShowLayersBtnToActive: () => {
+                if (this.linkLayersObject.isOpen) {
+                    this.linkLayersObject.close();
+                }
+
                 this.actions.cleanSelectionFromLayers();
                 this.showLayersBtn.classList.add('active');
                 this.createLayerBtn.classList.remove('active');
@@ -105,6 +113,10 @@ export const Layers = new class Layers{
             },
 
             openLayerEditorWindow: () => {
+                if (this.linkLayersObject.isOpen) {
+                    this.linkLayersObject.close();
+                }
+
                 this.layerEditorWindowElem.style.setProperty('--top', `${this.headerPanel.clientHeight}px`);
                 this.layerEditorWindowElem.classList.add('open');
 
@@ -173,7 +185,7 @@ export const Layers = new class Layers{
 
         this.init = () => {
             this.showLayersBtn.addEventListener('click', () => {
-                if (this.layoutLayersIsOpen && this.layerEditorWindowIsOpen) {
+                if (this.layoutLayersIsOpen && (this.layerEditorWindowIsOpen || this.linkLayersObject.isOpen)) {
                     this.actions.switchShowLayersBtnToActive();
                 } else if (this.layoutLayersIsOpen) {
                     this.actions.hideLayoutLayers();
@@ -232,8 +244,13 @@ export const Layers = new class Layers{
             linkLayersBtn: document.getElementById('link-layers'),
             layerUlIn: document.getElementsByClassName('link-layers__layers-list')[0],
             layerUlOut: document.getElementsByClassName('edit-layers__layers-list')[0],
+            customOptionsUlIn: document.getElementsByClassName('link-layers__options-list')[0],
+            getCustomOptionsFromOpenStep: () => {
+                return document.querySelector('.steps__step-content.open')[0];
+            },
 
             isOpen: false,
+            contentType: 'layers',
 
             listItemClickHandler: (e) => {
                 console.log(e.target);
@@ -286,30 +303,43 @@ export const Layers = new class Layers{
             },
 
             updateList: () => {
-                let outLength = this.actions.getLayersUl().length;
-                let inLength = this.linkLayersObject.layerUlIn.children.length;
-                if (inLength < outLength) {
-                    let clone;
-                    for (let i = inLength; i < outLength; i++) {
-                        clone = this.linkLayersObject.layerUlOut.children[i].cloneNode(true);
-                        clone.addEventListener('click', this.linkLayersObject.listItemClickHandler);
-                        clone.addEventListener('mousedown', this.linkLayersObject.listItemMouseDownHandler);
-                        this.linkLayersObject.layerUlIn.appendChild(clone);
-                    } 
-                } else if (inLength > outLength) {
-                    for (let i = 0; i < inLength - outLength; i++) {
-                        this.linkLayersObject.layerUlIn.children[i].remove();
-                        console.log(`removing layer ${i}...`);
+                if (this.linkLayersObject.contentType === 'layers') {
+                    this.linkLayersObject.customOptionsUlIn.classList.add('hidden');
+                    this.linkLayersObject.layerUlIn.classList.remove('hidden');
+
+                    let outLength = this.actions.getLayersUl().length;
+                    let inLength = this.linkLayersObject.layerUlIn.children.length;
+                    if (inLength < outLength) {
+                        let clone;
+                        for (let i = inLength; i < outLength; i++) {
+                            clone = this.linkLayersObject.layerUlOut.children[i].cloneNode(true);
+                            clone.addEventListener('click', this.linkLayersObject.listItemClickHandler);
+                            clone.addEventListener('mousedown', this.linkLayersObject.listItemMouseDownHandler);
+                            this.linkLayersObject.layerUlIn.appendChild(clone);
+                        } 
+                    } else if (inLength > outLength) {
+                        for (let i = 0; i < inLength - outLength; i++) {
+                            this.linkLayersObject.layerUlIn.children[i].remove();
+                            console.log(`removing layer ${i}...`);
+                        }
                     }
+                } else {
+                    this.linkLayersObject.customOptionsUlIn.classList.remove('hidden');
+                    this.linkLayersObject.layerUlIn.classList.add('hidden');
                 }
             },
 
             open: () => {
-                if (this.layerEditorWindowIsOpen || this.layoutLayersIsOpen) {
-                    this.actions.closeEditor();
+                if (this.layoutLayersIsOpen) {
+                    this.linkLayersObject.contentType = 'options';
+                } else {
+                    this.linkLayersObject.contentType = 'layers';
+                }
+                if (this.layerEditorWindowIsOpen) {
+                    // this.actions.closeEditor();
                     this.actions.closeLayerEditorWindow();
                     this.actions.cleanSelectionFromLayers();
-                    this.actions.hideLayoutLayers();
+                    // this.actions.hideLayoutLayers();
                 };
 
                 this.linkLayersObject.updateList();

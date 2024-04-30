@@ -7,6 +7,7 @@ import { logicRulesScripts } from './modules/logicRulesScripts.js';
 import { panelBtns } from './modules/panelBtns.js';
 import { stepTabs } from './modules/stepTabs.js';
 import { Layers } from './modules/layers/newCodeForLayers.js';
+import { collapse } from './modules/options/collapse.js';
 
 const disableFormSubmitBtns = () => {
     const btns = document.querySelectorAll('form button');
@@ -26,6 +27,7 @@ gallerySelect();
 stepTabs();
 logicRulesScripts();
 dropdownAddLayer();
+collapse();
 
 window.Layers = Layers;
 
