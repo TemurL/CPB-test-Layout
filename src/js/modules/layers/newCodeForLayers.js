@@ -264,7 +264,7 @@ export const Layers = new class Layers{
 
             listItemMouseDownHandler: (e) => {
                 console.log(e);
-                let listItem = e.currentTarget;
+                let listItem = e.target;
                 if (listItem.dataset.layerType === 'auto') {
                     listItem.classList.add('dont-drag');
                     addEventListener('mouseup', () => {

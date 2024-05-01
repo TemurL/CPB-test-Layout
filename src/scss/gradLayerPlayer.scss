@@ -44,6 +44,7 @@
     left: calc(var(--pos-x, 50%) - 25px);
     top: calc(var(--pos-y, 50%) - 25px);
     animation: scaleIn .3s ease 1 forwards;
+    z-index: 100;
 }
 
 @keyframes scaleIn {
