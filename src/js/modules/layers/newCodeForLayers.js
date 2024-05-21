@@ -248,11 +248,15 @@ export const Layers = new class Layers{
             layerUlOut: document.getElementsByClassName('edit-layers__layers-list')[0],
             customOptionsUlIn: document.getElementsByClassName('link-layers__options-list')[0],
             getCustomOptionsFromOpenStep: () => {
-                return document.querySelector('.steps__step-content.open').children;
+                return {
+                    options: document.querySelector('.steps__step-content.open').children,
+                    stepID: document.querySelector('.steps__step-content.open').id
+                };
             },
 
             isOpen: false,
             contentType: 'layers',
+            lastStepID: document.querySelector('.steps__step-content').id,
 
             listItemClickHandler: (e) => {
                 console.log(e.target);
@@ -306,6 +310,7 @@ export const Layers = new class Layers{
 
             updateList: () => {
                 if (this.linkLayersObject.contentType === 'layers') {
+                    this.linkLayersObject.linkLayersWrapper.querySelector('p').textContent = 'ALL LAYERS'
                     this.linkLayersObject.customOptionsUlIn.classList.add('hidden');
                     this.linkLayersObject.layerUlIn.classList.remove('hidden');
 
@@ -327,16 +332,23 @@ export const Layers = new class Layers{
                         }
                     }
                 } else {
+                    this.linkLayersObject.linkLayersWrapper.querySelector('p').textContent = 'OPTIONS FROM OPEN STEP';
                     console.log('updating options');
                     this.linkLayersObject.customOptionsUlIn.classList.remove('hidden');
                     this.linkLayersObject.layerUlIn.classList.add('hidden');
 
-                    let outLength = this.linkLayersObject.getCustomOptionsFromOpenStep().length;
+                    if (this.linkLayersObject.lastStepID != this.linkLayersObject.getCustomOptionsFromOpenStep().stepID) {
+                        this.linkLayersObject.customOptionsUlIn.innerHTML = '';
+                    }
+
+                    let outLength = this.linkLayersObject.getCustomOptionsFromOpenStep().options.length;
                     let inLength = this.linkLayersObject.customOptionsUlIn.children.length;
+
                     if (inLength < outLength) {
                         let clone;
                         for (let i = inLength; i < outLength; i++) {
-                            clone = this.linkLayersObject.getCustomOptionsFromOpenStep()[i].cloneNode(true);
+                            clone = this.linkLayersObject.getCustomOptionsFromOpenStep().options[i].cloneNode(true);
+                            if (!clone.classList.contains('custom-option')) return
                             clone.querySelector('.custom-option__row_actions').remove();
                             clone.querySelectorAll('.custom-option__color-choice').forEach(choice => choice.addEventListener('mousedown', this.linkLayersObject.listItemMouseDownHandler));
                             clone.querySelector('.custom-option__add-layer-button').addEventListener('mousedown', this.linkLayersObject.listItemMouseDownHandler);
@@ -361,8 +373,7 @@ export const Layers = new class Layers{
                         }
                     }
 
-                    
-
+                    this.linkLayersObject.lastStepID = this.linkLayersObject.getCustomOptionsFromOpenStep().stepID;
                 }
             },
 
