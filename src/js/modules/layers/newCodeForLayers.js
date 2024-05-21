@@ -1,3 +1,5 @@
+import { collapse } from "../options/collapse.js";
+
 export const Layers = new class Layers{
     constructor() {   
         this.layoutLayers = document.querySelector('.menu__edit-layers'),
@@ -246,7 +248,7 @@ export const Layers = new class Layers{
             layerUlOut: document.getElementsByClassName('edit-layers__layers-list')[0],
             customOptionsUlIn: document.getElementsByClassName('link-layers__options-list')[0],
             getCustomOptionsFromOpenStep: () => {
-                return document.querySelector('.steps__step-content.open')[0];
+                return document.querySelector('.steps__step-content.open').children;
             },
 
             isOpen: false,
@@ -316,6 +318,7 @@ export const Layers = new class Layers{
                             clone.addEventListener('click', this.linkLayersObject.listItemClickHandler);
                             clone.addEventListener('mousedown', this.linkLayersObject.listItemMouseDownHandler);
                             this.linkLayersObject.layerUlIn.appendChild(clone);
+                            console.log(`addind layer ${i}...`);
                         } 
                     } else if (inLength > outLength) {
                         for (let i = 0; i < inLength - outLength; i++) {
@@ -324,8 +327,42 @@ export const Layers = new class Layers{
                         }
                     }
                 } else {
+                    console.log('updating options');
                     this.linkLayersObject.customOptionsUlIn.classList.remove('hidden');
                     this.linkLayersObject.layerUlIn.classList.add('hidden');
+
+                    let outLength = this.linkLayersObject.getCustomOptionsFromOpenStep().length;
+                    let inLength = this.linkLayersObject.customOptionsUlIn.children.length;
+                    if (inLength < outLength) {
+                        let clone;
+                        for (let i = inLength; i < outLength; i++) {
+                            clone = this.linkLayersObject.getCustomOptionsFromOpenStep()[i].cloneNode(true);
+                            clone.querySelector('.custom-option__row_actions').remove();
+                            clone.querySelectorAll('.custom-option__color-choice').forEach(choice => choice.addEventListener('mousedown', this.linkLayersObject.listItemMouseDownHandler));
+                            clone.querySelector('.custom-option__add-layer-button').addEventListener('mousedown', this.linkLayersObject.listItemMouseDownHandler);
+                            clone.classList.add('collapsed');
+                            clone.id += '-link';
+                            clone.querySelector('.custom-option__collapse-button').addEventListener('click', (e) => {
+                                const customOption = e.currentTarget.closest('.custom-option');
+                                console.log(customOption);
+                                if (customOption.classList.contains('collapsed')) {
+                                    customOption.classList.remove('collapsed');
+                                } else {
+                                    customOption.classList.add('collapsed');
+                                }
+                            });
+                            this.linkLayersObject.customOptionsUlIn.appendChild(clone);
+                            console.log(`addind option ${i}...`);
+                        } 
+                    } else if (inLength > outLength) {
+                        for (let i = 0; i < inLength - outLength; i++) {
+                            this.linkLayersObject.customOptionsUlIn.children[i].remove();
+                            console.log(`removing option ${i}...`);
+                        }
+                    }
+
+                    
+
                 }
             },
 

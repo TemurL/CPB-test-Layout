@@ -3,6 +3,7 @@ export const collapse = () => {
     collapseBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             const customOption = e.target.closest('.custom-option');
+            console.log(customOption);
             if (customOption.classList.contains('collapsed')) {
                 customOption.classList.remove('collapsed');
             } else {
